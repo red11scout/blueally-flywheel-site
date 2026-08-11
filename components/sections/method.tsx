@@ -87,7 +87,7 @@ export function Method() {
               <li
                 key={s.n}
                 data-step={i}
-                className={`flex min-h-[34vh] flex-col justify-center border-t border-edge py-10 transition-opacity duration-500 lg:min-h-[44vh] ${
+                className={`flex min-h-[26vh] flex-col justify-center border-t border-edge py-10 transition-opacity duration-500 lg:min-h-[44vh] ${
                   i === active ? "opacity-100" : "opacity-40"
                 } motion-reduce:opacity-100`}
               >

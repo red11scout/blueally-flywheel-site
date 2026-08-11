@@ -76,13 +76,21 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Deep-blue dark canvas with an aurora bloom from above */
+/* Deep-blue dark canvas with an aurora bloom from above. The bloom lives
+   on a fixed pseudo-layer: background-attachment: fixed breaks scrolling
+   on iOS Safari, this does not. */
 .dark body {
+  background: var(--deep);
+}
+.dark body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(120% 90% at 72% -20%, rgba(6, 28, 155, 0.85) 0%, transparent 55%),
-    radial-gradient(80% 60% at 0% 110%, rgba(0, 18, 120, 0.6) 0%, transparent 60%),
-    var(--deep);
-  background-attachment: fixed;
+    radial-gradient(80% 60% at 0% 110%, rgba(0, 18, 120, 0.6) 0%, transparent 60%);
 }
 
 /* Glowing white display text in the dark */
@@ -157,33 +165,31 @@ body {
   transform-origin: 48.83% 49.75%; /* wheel centre within the icon viewBox */
 }
 
-/* ---- Sheen: a slow light sweep, the site's slight shimmer ---- */
-@keyframes sheen {
-  0% {
-    background-position: 220% 0;
+/* ---- Aurora text: brand light drifting inside the letters. Slow enough
+   to feel alive, never a shine sweep. ---- */
+@keyframes auroradrift {
+  from {
+    background-position: 0% 50%;
   }
-  55%,
-  100% {
-    background-position: -120% 0;
+  to {
+    background-position: 100% 50%;
   }
 }
-.sheen {
-  position: relative;
-}
-.sheen::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.aurora-text {
   background: linear-gradient(
-    105deg,
-    transparent 42%,
-    rgba(255, 255, 255, 0.16) 50%,
-    transparent 58%
+    100deg,
+    #02a2fd 0%,
+    #5db1ed 28%,
+    #37b6ff 52%,
+    #8fd0ff 68%,
+    #02a2fd 100%
   );
-  background-size: 240% 100%;
-  animation: sheen 8s ease-in-out infinite;
-  mix-blend-mode: screen;
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  animation: auroradrift 18s ease-in-out infinite alternate;
 }
 
 /* ---- Marquee band ---- */
@@ -238,12 +244,9 @@ body {
   }
   .spin-slow,
   .marquee,
-  .breathe {
+  .breathe,
+  .aurora-text {
     animation: none;
-  }
-  .sheen::after {
-    animation: none;
-    background: none;
   }
   .lift,
   .lift:hover {

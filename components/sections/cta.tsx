@@ -21,7 +21,7 @@ export function Cta() {
       </div>
       <Shell className="relative py-24 sm:py-36">
         <Reveal className="max-w-3xl">
-          <h2 className="sheen text-[clamp(2.8rem,6vw,5rem)] font-light leading-[1.02] tracking-[-0.02em] text-white">
+          <h2 className="text-[clamp(2.8rem,6vw,5rem)] font-light leading-[1.02] tracking-[-0.02em] text-white">
             Put two days on the calendar.
           </h2>
           <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-white sm:text-xl">
@@ -74,8 +74,8 @@ export function Footer() {
 
       <Shell className="relative pb-16 pt-20 sm:pt-28">
         <Reveal>
-          <p className="sheen glow text-[clamp(2.6rem,6vw,5rem)] font-light leading-none tracking-[-0.02em] text-white">
-            Conquer <span className="text-bright">Complexity.</span>
+          <p className="glow text-[clamp(2.6rem,6vw,5rem)] font-light leading-none tracking-[-0.02em] text-white">
+            Conquer <span className="aurora-text">Complexity.</span>
           </p>
         </Reveal>
 

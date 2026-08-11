@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Flywheel } from "@/components/flywheel";
 
-const LINKS = [
+export const SECTIONS = [
   { id: "top", label: "Top" },
   { id: "stakes", label: "The honest stakes" },
   { id: "failures", label: "Why programs die" },
@@ -46,7 +46,7 @@ export function QuickNav() {
         {open && (
           <div className="w-64 overflow-hidden rounded-2xl border border-white/15 bg-ink/90 p-2 shadow-2xl backdrop-blur-md">
             <ul className="flex max-h-[min(28rem,70svh)] flex-col overflow-y-auto">
-              {LINKS.map((l) => (
+              {SECTIONS.map((l) => (
                 <li key={l.id}>
                   <a
                     href={`#${l.id}`}

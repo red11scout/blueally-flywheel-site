@@ -39,8 +39,8 @@ export function Hero() {
           <p>
             <Pill>Enterprise AI · Agents · Method</Pill>
           </p>
-          <h1 className="sheen mt-7 text-[clamp(3.2rem,8.5vw,7rem)] font-light leading-[0.98] tracking-[-0.03em] [text-wrap:balance]">
-            <span className="block text-bright">Most AI never ships.</span>
+          <h1 className="mt-7 text-[clamp(3.2rem,8.5vw,7rem)] font-light leading-[0.98] tracking-[-0.03em] [text-wrap:balance]">
+            <span className="aurora-text block">Most AI never ships.</span>
             <span className="block text-white">Ours does.</span>
           </h1>
           <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-lblue/90 sm:text-xl">

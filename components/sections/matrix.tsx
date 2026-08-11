@@ -11,7 +11,7 @@ const QUADRANTS = {
   strategic: {
     name: "Strategic",
     action: "Plan a sprint",
-    cls: "bg-navy text-white",
+    cls: "bg-navy text-white dark:border dark:border-lblue/25",
     dot: "bg-white",
     label: "text-lblue/80",
   },

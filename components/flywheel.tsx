@@ -99,11 +99,18 @@ export function Flywheel(props: HeroProps | GhostProps | NavProps) {
   }
 
   // Nav state: one blade per phase, blade 1 at 12 o'clock, phases advance
-  // clockwise. Active blade solid Bright; the rest stay dimly lit.
-  const { blades, active, onDark = true } = props;
+  // clockwise. Active blade solid Bright; the rest stay dimly lit. On theme
+  // surfaces the dim fill flips with the theme (--wheel-dim); onDark keeps a
+  // fixed treatment for permanently-dark surfaces.
+  const { blades, active, onDark } = props;
   const step = 360 / blades;
   const k = blades > 3 ? (step - 12) / SPAN : 1;
-  const dim = onDark ? { fill: "var(--lblue)", o: 0.26 } : { fill: "var(--navy)", o: 0.14 };
+  const dim =
+    onDark === undefined
+      ? { fill: "var(--wheel-dim)", o: 1 }
+      : onDark
+        ? { fill: "var(--lblue)", o: 0.26 }
+        : { fill: "var(--navy)", o: 0.14 };
 
   return (
     <svg

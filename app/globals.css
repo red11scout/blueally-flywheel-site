@@ -28,6 +28,7 @@
   --soft: var(--soft-ink);
   --edge: rgba(0, 18, 120, 0.12);
   --card-shadow: 0 16px 40px -18px rgba(0, 18, 120, 0.22);
+  --wheel-dim: rgba(0, 18, 120, 0.16);
 }
 
 .dark {
@@ -39,6 +40,7 @@
   --soft: rgba(205, 229, 241, 0.78);
   --edge: rgba(205, 229, 241, 0.18);
   --card-shadow: 0 18px 44px -18px rgba(2, 162, 253, 0.28);
+  --wheel-dim: rgba(205, 229, 241, 0.34);
 }
 
 @theme inline {

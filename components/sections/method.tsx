@@ -61,7 +61,7 @@ export function Method() {
                 className="w-full max-w-md transition-transform duration-700 will-change-transform [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
                 style={{ transform: `rotate(${-active * (360 / 7)}deg)` }}
               >
-                <Flywheel state="nav" blades={7} active={active} onDark={false} className="w-full" />
+                <Flywheel state="nav" blades={7} active={active} className="w-full" />
               </div>
               <p aria-hidden className="mt-8 flex items-baseline gap-3">
                 <span className="text-6xl font-light text-bright">{active + 1}</span>
@@ -74,7 +74,7 @@ export function Method() {
           <div className="sticky top-16 z-10 -mx-5 bg-surface/85 px-5 py-3 backdrop-blur-md lg:hidden">
             <div className="flex items-center gap-4">
               <div className="h-12 w-12 shrink-0">
-                <Flywheel state="nav" blades={7} active={active} onDark={false} className="h-12 w-12" />
+                <Flywheel state="nav" blades={7} active={active} className="h-12 w-12" />
               </div>
               <p className="text-sm font-bold text-strong">
                 Step {active + 1} of 7 · {STEPS[active].title}

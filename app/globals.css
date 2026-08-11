@@ -148,11 +148,65 @@ body {
   transform-origin: 48.83% 49.75%; /* wheel centre within the icon viewBox */
 }
 
+/* ---- Marquee band ---- */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 36s linear infinite;
+}
+
+/* ---- Aurora breath: the light-field slowly swells ---- */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+.breathe {
+  animation: breathe 9s ease-in-out infinite;
+}
+
+/* ---- Giant editorial section numerals (web, not slide) ---- */
+.numeral-ghost {
+  font-weight: 300;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--strong) 18%, transparent);
+  user-select: none;
+}
+
+/* ---- Card lift ---- */
+.lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+.lift:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--bright) 55%, transparent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .spin-slow {
+  .spin-slow,
+  .marquee,
+  .breathe {
     animation: none;
+  }
+  .lift,
+  .lift:hover {
+    transform: none;
+    transition: none;
   }
 }

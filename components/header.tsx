@@ -55,6 +55,7 @@ export function Header() {
   }, [menuOpen]);
 
   return (
+    <>
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/70 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-[88rem] items-center gap-4 px-5 sm:px-8">
         <a href="#top" aria-label="BlueAlly, back to top" className="shrink-0">
@@ -120,34 +121,38 @@ export function Header() {
         style={{ transform: `scaleX(${progress})` }}
       />
 
-      {/* Mobile sheet: every destination, thumb-sized */}
-      {menuOpen && (
-        <nav
-          aria-label="All sections"
-          className="fixed inset-x-0 top-16 bottom-0 z-50 flex flex-col overflow-y-auto bg-ink/95 px-6 pb-8 pt-6 backdrop-blur-xl lg:hidden"
-        >
-          <ul className="flex flex-1 flex-col">
-            {SECTIONS.filter((s) => s.id !== "action").map((s) => (
-              <li key={s.id} className="border-b border-white/10">
-                <a
-                  href={`#${s.id}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="block py-4 text-xl font-light text-lblue transition-colors hover:text-white"
-                >
-                  {s.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#action"
-            onClick={() => setMenuOpen(false)}
-            className="mt-6 rounded-full bg-bright px-8 py-4 text-center text-base font-bold text-white"
-          >
-            Book the workshop
-          </a>
-        </nav>
-      )}
     </header>
+
+    {/* Mobile sheet: a SIBLING of the header — the header's backdrop-filter
+        would otherwise become the containing block for this fixed panel and
+        collapse it to a sliver (Safari and Chrome both). */}
+    {menuOpen && (
+      <nav
+        aria-label="All sections"
+        className="fixed inset-x-0 bottom-0 top-16 z-40 flex flex-col overflow-y-auto bg-ink/95 px-6 pb-8 pt-6 backdrop-blur-xl lg:hidden"
+      >
+        <ul className="flex flex-1 flex-col">
+          {SECTIONS.filter((s) => s.id !== "action").map((s) => (
+            <li key={s.id} className="border-b border-white/10">
+              <a
+                href={`#${s.id}`}
+                onClick={() => setMenuOpen(false)}
+                className="block py-4 text-xl font-light text-lblue transition-colors hover:text-white"
+              >
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="#action"
+          onClick={() => setMenuOpen(false)}
+          className="mt-6 rounded-full bg-bright px-8 py-4 text-center text-base font-bold text-white"
+        >
+          Book the workshop
+        </a>
+      </nav>
+    )}
+    </>
   );
 }

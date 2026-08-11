@@ -22,7 +22,7 @@ const PATTERNS = [
 
 export function Verbs() {
   return (
-    <Shell className="py-24 sm:py-32">
+    <Shell className="py-24 sm:py-32" id="verbs">
       <Reveal className="max-w-3xl">
         <Pill>Start with the work</Pill>
         <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">

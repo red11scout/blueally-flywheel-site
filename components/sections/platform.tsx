@@ -1,4 +1,4 @@
-import { Headline, Pill, Shell } from "@/components/ui";
+import { Disclosure, Headline, Pill, Shell } from "@/components/ui";
 import { Reveal } from "@/components/motion";
 
 const PILLARS = [
@@ -30,7 +30,7 @@ const RUN = [
 
 export function Platform() {
   return (
-    <Shell className="pb-24 sm:pb-32">
+    <Shell className="pb-24 sm:pb-32" id="platform">
       <Reveal className="max-w-3xl">
         <Pill>One partner, end to end</Pill>
         <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
@@ -107,20 +107,26 @@ export function Platform() {
       </Reveal>
 
       <Reveal className="mt-12">
-        <p className="max-w-2xl text-lg text-soft">
-          <span className="font-bold text-strong">
-            Build the vessel before you start the reaction.
-          </span>{" "}
-          Govern the data first. The model is a tenant, not a landlord.
-        </p>
-        <div className="mt-8 grid gap-8 sm:grid-cols-3">
-          {RUN.map((r) => (
-            <div key={r.title} className="border-t-2 border-navy pt-4 dark:border-lblue/40">
-              <h3 className="text-base font-bold text-strong">{r.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-soft">{r.line}</p>
-            </div>
-          ))}
-        </div>
+        <Disclosure
+          summary={
+            <p className="text-lg text-soft">
+              <span className="font-bold text-strong">
+                Build the vessel before you start the reaction.
+              </span>{" "}
+              Govern the data first. The model is a tenant, not a landlord.
+            </p>
+          }
+        >
+          <div className="grid gap-8 sm:grid-cols-3">
+            {RUN.map((r) => (
+              <div key={r.title} className="border-t-2 border-navy pt-4 dark:border-lblue/40">
+                <h3 className="text-base font-bold text-strong">{r.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-soft">{r.line}</p>
+              </div>
+            ))}
+          </div>
+        </Disclosure>
+        <div className="border-t border-edge" />
       </Reveal>
     </Shell>
   );

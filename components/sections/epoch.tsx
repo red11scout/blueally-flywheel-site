@@ -17,7 +17,7 @@ const SPLIT = [
 
 export function Epoch() {
   return (
-    <Shell className="pb-24 sm:pb-32">
+    <Shell className="pb-24 sm:pb-32" id="epoch">
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl bg-ink grain">
           <div

@@ -1,4 +1,4 @@
-import { Headline, Pill, Shell } from "@/components/ui";
+import { Disclosure, Headline, Pill, Shell } from "@/components/ui";
 import { CountUp, Reveal } from "@/components/motion";
 
 const STATS = [
@@ -130,46 +130,55 @@ export function Stakes() {
 
 export function FailureModes() {
   return (
-    <Shell className="pb-24 sm:pb-32">
-      <Reveal className="max-w-3xl">
-        <Pill>Why programs die</Pill>
-        <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-          Five doors to failure.{" "}
-          <span className="text-bright">Seven keys</span> that close them.
-        </Headline>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
-          Nearly every stalled program dies one of five ways. Four of the five
-          are people and method. Only one is the model. So each step of our
-          method exists to close a door.
-        </p>
-      </Reveal>
+    <section id="failures">
+      <Shell className="pb-24 sm:pb-32">
+        <Reveal className="max-w-3xl">
+          <Pill>Why programs die</Pill>
+          <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
+            Five doors to failure.{" "}
+            <span className="text-bright">Seven keys</span> that close them.
+          </Headline>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
+            Nearly every stalled program dies one of five ways. Four of the
+            five are people and method. Only one is the model. Open a door to
+            see how the method closes it.
+          </p>
+        </Reveal>
 
-      <div className="mt-14">
-        {MODES.map((m) => (
-          <Reveal key={m.num}>
-            <div className="group grid gap-4 border-t border-edge py-7 transition-colors hover:bg-card/60 sm:grid-cols-[4.5rem_1.2fr_1fr] sm:gap-8 sm:py-8">
-              <p className="text-4xl font-light leading-none text-bright sm:text-5xl">
-                {m.num}
-              </p>
-              <div>
-                <h3 className="text-xl font-bold text-strong">{m.title}</h3>
-                <p className="mt-2 max-w-md text-base leading-relaxed text-soft">
+        <div className="mt-14">
+          {MODES.map((m, i) => (
+            <Disclosure
+              key={m.num}
+              defaultOpen={i === 0}
+              summary={
+                <div className="flex items-baseline gap-6 sm:gap-8">
+                  <span className="w-10 text-4xl font-light leading-none text-bright sm:text-5xl">
+                    {m.num}
+                  </span>
+                  <span className="text-xl font-bold text-strong sm:text-2xl">
+                    {m.title}
+                  </span>
+                </div>
+              }
+            >
+              <div className="grid gap-6 sm:grid-cols-2 sm:gap-10 sm:pl-16">
+                <p className="max-w-md text-base leading-relaxed text-soft">
                   {m.body}
                 </p>
+                <div className="sm:border-l sm:border-edge sm:pl-8">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-green">
+                    Closed by {m.closedBy}
+                  </p>
+                  <p className="mt-2 max-w-sm text-sm leading-relaxed text-copy">
+                    {m.how}
+                  </p>
+                </div>
               </div>
-              <div className="sm:border-l sm:border-edge sm:pl-8">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-green">
-                  Closed by {m.closedBy}
-                </p>
-                <p className="mt-2 max-w-sm text-sm leading-relaxed text-copy">
-                  {m.how}
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-        <div className="border-t border-edge" />
-      </div>
-    </Shell>
+            </Disclosure>
+          ))}
+          <div className="border-t border-edge" />
+        </div>
+      </Shell>
+    </section>
   );
 }

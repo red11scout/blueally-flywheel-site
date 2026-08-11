@@ -24,14 +24,14 @@ export function Hero() {
       />
       <div
         aria-hidden
-        className="aurora breathe absolute -right-40 top-[8%] h-[42rem] w-[42rem] opacity-80"
+        className="aurora breathe absolute -right-56 top-[10%] h-[36rem] w-[36rem] opacity-35"
         style={{ "--aurora-surface": "transparent" } as React.CSSProperties}
       />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-[26%] -top-20 w-[92vw] max-w-135 opacity-90 sm:-right-[10%] sm:top-1/2 sm:w-[56vw] sm:max-w-240 sm:-translate-y-1/2"
       >
-        <Flywheel state="hero" spin className="w-full drop-shadow-[0_40px_80px_rgba(2,162,253,0.25)]" />
+        <Flywheel state="hero" spin className="w-full drop-shadow-[0_40px_80px_rgba(2,162,253,0.16)]" />
       </div>
 
       <Shell className="relative flex min-h-[100svh] flex-col justify-end pb-24 pt-44 sm:justify-center sm:pb-32 sm:pt-40">

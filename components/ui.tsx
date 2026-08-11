@@ -19,14 +19,41 @@ export function Pill({
 export function Shell({
   children,
   className = "",
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
-    <div className={`mx-auto w-full max-w-7xl px-5 sm:px-8 ${className}`}>
+    <div id={id} className={`mx-auto w-full max-w-7xl px-5 sm:px-8 ${className}`}>
       {children}
     </div>
+  );
+}
+
+export function Disclosure({
+  summary,
+  children,
+  defaultOpen = false,
+}: {
+  summary: React.ReactNode;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) {
+  return (
+    <details open={defaultOpen} className="group border-t border-edge">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
+        <div className="min-w-0 flex-1">{summary}</div>
+        <span
+          aria-hidden
+          className="shrink-0 text-2xl font-light leading-none text-bright transition-transform duration-300 group-open:rotate-45 motion-reduce:transition-none"
+        >
+          +
+        </span>
+      </summary>
+      <div className="pb-8">{children}</div>
+    </details>
   );
 }
 

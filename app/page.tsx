@@ -1,4 +1,5 @@
 import { Header } from "@/components/header";
+import { QuickNav } from "@/components/quicknav";
 import { Hero } from "@/components/sections/hero";
 import { FailureModes, Stakes } from "@/components/sections/stakes";
 import { Method } from "@/components/sections/method";
@@ -30,6 +31,7 @@ export default function Home() {
         <Cta />
         <Footer />
       </main>
+      <QuickNav />
     </>
   );
 }

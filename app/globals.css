@@ -196,16 +196,15 @@ body {
   animation: marquee 36s linear infinite;
 }
 
-/* ---- Aurora breath: the light-field slowly swells ---- */
+/* ---- Aurora breath: the light-field slowly swells (transform only, so
+   the element's own opacity stays in control of brightness) ---- */
 @keyframes breathe {
   0%,
   100% {
-    opacity: 0.8;
     transform: scale(1);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.06);
+    transform: scale(1.07);
   }
 }
 .breathe {

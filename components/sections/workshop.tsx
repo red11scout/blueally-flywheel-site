@@ -1,4 +1,4 @@
-import { Headline, Pill, Shell } from "@/components/ui";
+import { Disclosure, Headline, Pill, Shell } from "@/components/ui";
 import { Reveal } from "@/components/motion";
 
 const MOVES = [
@@ -72,33 +72,39 @@ export function Workshop() {
             </Reveal>
 
             <Reveal className="mt-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
-                You leave with seven artifacts
-              </p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                {DELIVERABLES.map((d, i) => (
-                  <div
-                    key={d.name}
-                    className={`lift curl border border-edge bg-card p-5 ${
-                      i === 6 ? "sm:col-span-2" : ""
-                    }`}
-                    style={{ boxShadow: "var(--card-shadow)" }}
-                  >
-                    <p className="flex items-baseline gap-3">
-                      <span className="text-sm font-bold text-bright">{i + 1}</span>
-                      <span className="text-base font-bold text-strong">{d.name}</span>
-                    </p>
-                    <p className="mt-1.5 pl-6 text-sm leading-relaxed text-soft">
-                      {d.line}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-6 text-base text-soft">
-                Seven artifacts. One fundable plan. Everything an executive
-                team needs to decide and move,{" "}
-                <span className="font-bold text-strong">the same week</span>.
-              </p>
+              <Disclosure
+                summary={
+                  <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                    <span className="text-xl font-bold text-strong">
+                      The seven artifacts you leave with
+                    </span>
+                    <span className="text-sm text-soft">
+                      one fundable plan, the same week
+                    </span>
+                  </p>
+                }
+              >
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {DELIVERABLES.map((d, i) => (
+                    <div
+                      key={d.name}
+                      className={`lift curl border border-edge bg-card p-5 ${
+                        i === 6 ? "sm:col-span-2" : ""
+                      }`}
+                      style={{ boxShadow: "var(--card-shadow)" }}
+                    >
+                      <p className="flex items-baseline gap-3">
+                        <span className="text-sm font-bold text-bright">{i + 1}</span>
+                        <span className="text-base font-bold text-strong">{d.name}</span>
+                      </p>
+                      <p className="mt-1.5 pl-6 text-sm leading-relaxed text-soft">
+                        {d.line}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </Disclosure>
+              <div className="border-t border-edge" />
             </Reveal>
           </div>
         </div>

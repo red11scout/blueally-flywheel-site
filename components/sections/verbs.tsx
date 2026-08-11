@@ -26,7 +26,7 @@ export function Verbs() {
       <Reveal className="max-w-3xl">
         <Pill>Start with the work</Pill>
         <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-          Name the verb before the model.
+          Name the <span className="text-bright">verb</span> before the model.
         </Headline>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
           Seven disciplines still do the heavy lifting. Generative AI is

@@ -30,7 +30,8 @@ export function Proof() {
         <Reveal className="max-w-3xl">
           <Pill>The payoff</Pill>
           <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-            Pilots that ship. A platform that compounds.
+            Pilots that <span className="text-bright">ship</span>. A platform
+            that compounds.
           </Headline>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
             Not projections. Results, measured after the fact, from systems

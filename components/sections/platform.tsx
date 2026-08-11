@@ -34,7 +34,8 @@ export function Platform() {
       <Reveal className="max-w-3xl">
         <Pill>One partner, end to end</Pill>
         <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-          The BlueAlly AI operating system.
+          The BlueAlly AI{" "}
+          <span className="text-bright">operating system</span>.
         </Headline>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
           Three pillars on one foundation, guided and governed. Strategy

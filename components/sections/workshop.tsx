@@ -38,7 +38,8 @@ export function Workshop() {
             <Reveal>
               <Pill>The workshop</Pill>
               <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-                Two days to a fundable plan.
+                <span className="text-bright">Two days</span> to a fundable
+                plan.
               </Headline>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-soft">
                 Method in the room. Your people at the table. A ranked

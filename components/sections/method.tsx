@@ -42,7 +42,8 @@ export function Method() {
         <Reveal className="max-w-3xl">
           <Pill>The method</Pill>
           <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-            Seven steps turn a challenge into measurable value.
+            <span className="text-bright">Seven steps</span> turn a challenge
+            into measurable value.
           </Headline>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
             No mystery, no magic. Every step ties to a real objective. No tech

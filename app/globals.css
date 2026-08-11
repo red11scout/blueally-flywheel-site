@@ -20,25 +20,25 @@
   --soft-ink: #3b497a;
   --deep: #000a3d;
 
-  /* Light theme surfaces: Cloud canvas, white cards */
-  --surface: var(--cloud);
-  --card: #ffffff;
+  /* Light theme: pure white canvas, vibrant brand color in the type */
+  --surface: #ffffff;
+  --card: var(--cloud);
   --strong: var(--navy);
   --copy: var(--ink);
   --soft: var(--soft-ink);
-  --edge: rgba(0, 18, 120, 0.1);
-  --card-shadow: 0 14px 34px -16px rgba(0, 18, 120, 0.16);
+  --edge: rgba(0, 18, 120, 0.12);
+  --card-shadow: 0 16px 40px -18px rgba(0, 18, 120, 0.22);
 }
 
 .dark {
-  /* Dark theme: Ink canvas, glass cards; thresholds stay Navy in both */
-  --surface: var(--ink);
-  --card: rgba(205, 229, 241, 0.055);
+  /* Dark theme: deep glowing blue, white light in the text */
+  --surface: var(--deep);
+  --card: rgba(205, 229, 241, 0.07);
   --strong: #ffffff;
   --copy: var(--lblue);
-  --soft: rgba(205, 229, 241, 0.74);
-  --edge: rgba(205, 229, 241, 0.14);
-  --card-shadow: 0 14px 34px -16px rgba(0, 0, 0, 0.5);
+  --soft: rgba(205, 229, 241, 0.78);
+  --edge: rgba(205, 229, 241, 0.18);
+  --card-shadow: 0 18px 44px -18px rgba(2, 162, 253, 0.28);
 }
 
 @theme inline {
@@ -72,6 +72,24 @@ body {
   color: var(--copy);
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+/* Deep-blue dark canvas with an aurora bloom from above */
+.dark body {
+  background:
+    radial-gradient(120% 90% at 72% -20%, rgba(6, 28, 155, 0.85) 0%, transparent 55%),
+    radial-gradient(80% 60% at 0% 110%, rgba(0, 18, 120, 0.6) 0%, transparent 60%),
+    var(--deep);
+  background-attachment: fixed;
+}
+
+/* Glowing white display text in the dark */
+.dark h1,
+.dark h2,
+.dark .glow {
+  text-shadow:
+    0 0 16px rgba(93, 177, 237, 0.4),
+    0 0 52px rgba(2, 162, 253, 0.28);
 }
 
 [id] {
@@ -148,6 +166,35 @@ body {
   transform-origin: 48.83% 49.75%; /* wheel centre within the icon viewBox */
 }
 
+/* ---- Sheen: a slow light sweep, the site's slight shimmer ---- */
+@keyframes sheen {
+  0% {
+    background-position: 220% 0;
+  }
+  55%,
+  100% {
+    background-position: -120% 0;
+  }
+}
+.sheen {
+  position: relative;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 58%
+  );
+  background-size: 240% 100%;
+  animation: sheen 8s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
 /* ---- Marquee band ---- */
 @keyframes marquee {
   to {
@@ -203,6 +250,10 @@ body {
   .marquee,
   .breathe {
     animation: none;
+  }
+  .sheen::after {
+    animation: none;
+    background: none;
   }
   .lift,
   .lift:hover {

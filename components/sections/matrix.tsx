@@ -25,7 +25,7 @@ const QUADRANTS = {
   foundation: {
     name: "Foundation",
     action: "Build first",
-    cls: "bg-cloud text-navy dark:bg-lblue/15 dark:text-lblue",
+    cls: "border border-edge bg-cloud text-navy dark:bg-lblue/15 dark:text-lblue",
     dot: "bg-navy dark:bg-lblue",
     label: "text-softink/80 dark:text-lblue/70",
   },
@@ -106,7 +106,8 @@ export function Matrix() {
         <Reveal className="max-w-3xl">
           <Pill>The Value-Readiness Matrix</Pill>
           <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-            What to deploy, what to prepare, what to park.
+            What to <span className="text-bright">deploy</span>, what to
+            prepare, what to park.
           </Headline>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
             Every candidate lands in one of four quadrants, and every quadrant

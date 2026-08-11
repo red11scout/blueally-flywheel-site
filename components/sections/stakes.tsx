@@ -60,7 +60,8 @@ export function Stakes() {
             <Reveal>
               <Pill>The honest stakes</Pill>
               <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-                The industry publishes its own verdict every year.
+                The industry publishes its own{" "}
+                <span className="text-bright">verdict</span> every year.
               </Headline>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-soft">
                 The numbers hold steady, and they are not kind. Read them
@@ -133,7 +134,8 @@ export function FailureModes() {
       <Reveal className="max-w-3xl">
         <Pill>Why programs die</Pill>
         <Headline className="mt-6 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.06]">
-          Five doors to failure. Seven keys that close them.
+          Five doors to failure.{" "}
+          <span className="text-bright">Seven keys</span> that close them.
         </Headline>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
           Nearly every stalled program dies one of five ways. Four of the five

@@ -129,17 +129,6 @@ body {
   filter: blur(18px);
 }
 
-/* Ink-shadow blob: dark depth for Bright surfaces (light gets dark, dark gets light) */
-.ink-blob {
-  background: radial-gradient(
-    closest-side,
-    rgba(2, 13, 81, 0.85) 0%,
-    rgba(2, 13, 81, 0.4) 45%,
-    transparent 72%
-  );
-  filter: blur(10px);
-}
-
 /* ---- Playbook curl card: one large rounded corner, bottom-right ---- */
 .curl {
   border-radius: 0.75rem 0.75rem 3rem 0.75rem;

@@ -1,3 +1,4 @@
+import { Flywheel } from "@/components/flywheel";
 import { Headline, Pill, Shell } from "@/components/ui";
 import { CountUp, Reveal } from "@/components/motion";
 
@@ -62,8 +63,10 @@ export function Proof() {
           <div className="curl relative overflow-hidden bg-navy p-8 grain sm:p-10">
             <div
               aria-hidden
-              className="aurora absolute -right-24 -top-24 h-80 w-80 opacity-70"
-            />
+              className="pointer-events-none absolute -right-24 -top-32 w-96"
+            >
+              <Flywheel state="ghost" onDark className="w-full" />
+            </div>
             <p className="relative max-w-3xl text-xl leading-relaxed text-white sm:text-2xl">
               The leaders who get this right grow revenue{" "}
               <span className="font-bold text-bright">1.5× their peers</span>.

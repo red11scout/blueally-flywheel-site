@@ -32,6 +32,7 @@ type GhostProps = {
   state: "ghost";
   className?: string;
   onDark?: boolean;
+  strength?: number; // watermark opacity per blade, default 0.09
 };
 
 type NavProps = {
@@ -76,6 +77,7 @@ export function Flywheel(props: HeroProps | GhostProps | NavProps) {
 
   if (props.state === "ghost") {
     const fill = props.onDark ? "var(--bright)" : "var(--navy)";
+    const strength = props.strength ?? 0.09;
     return (
       <svg
         viewBox="0 0 612 548"
@@ -88,7 +90,7 @@ export function Flywheel(props: HeroProps | GhostProps | NavProps) {
             key={a}
             d={BLADE}
             fill={fill}
-            fillOpacity={0.09}
+            fillOpacity={strength}
             transform={`rotate(${a} ${CX} ${CY})`}
           />
         ))}

@@ -12,7 +12,13 @@ const STEPS = [
 export function Cta() {
   return (
     <section id="action" className="g-illum-deep relative overflow-hidden grain">
-      <div className="ink-blob absolute -bottom-28 -right-16 h-[28rem] w-[28rem]" aria-hidden />
+      {/* The wheel, not a blob: navy ghost mid-spin, bleeding off the corner */}
+      <div
+        className="pointer-events-none absolute -bottom-40 -right-32 w-[36rem] rotate-12 sm:-bottom-48 sm:w-[44rem]"
+        aria-hidden
+      >
+        <Flywheel state="ghost" onDark={false} strength={0.24} className="w-full" />
+      </div>
       <Shell className="relative py-24 sm:py-36">
         <Reveal className="max-w-3xl">
           <h2 className="sheen text-[clamp(2.8rem,6vw,5rem)] font-light leading-[1.02] tracking-[-0.02em] text-white">
